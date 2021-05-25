@@ -6,6 +6,8 @@
 
 #include <Mmreg.h>
 #include "Mmsystem.h"
+#include "FormAudio.h"
+#include "Formtest.h"
 #pragma once
 
 typedef struct BufferNode
@@ -32,6 +34,10 @@ public:
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
 
+	FormAudio *p_audio;
+	Formtest *p_test;
+	void AllocForms();
+	void ShowForm(int idx);
 
 // Implementation
 protected:
@@ -45,4 +51,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedButton2();
 };

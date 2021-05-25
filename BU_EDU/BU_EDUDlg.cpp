@@ -73,6 +73,7 @@ BEGIN_MESSAGE_MAP(CBUEDUDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, &CBUEDUDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CBUEDUDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -82,7 +83,7 @@ BOOL CBUEDUDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-
+	
 	// Add "About..." menu item to system menu.
 
 	// IDM_ABOUTBOX must be in the system command range.
@@ -109,7 +110,7 @@ BOOL CBUEDUDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
-
+	AllocForms();
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -155,6 +156,58 @@ void CBUEDUDlg::OnPaint()
 	}
 }
 
+void CBUEDUDlg::AllocForms()
+{
+	CCreateContext context;
+	ZeroMemory(&context, sizeof(context));
+
+	CRect rectOfPanelArea;
+
+	GetDlgItem(IDC_STATIC_RECT)->GetWindowRect(&rectOfPanelArea);
+	ScreenToClient(&rectOfPanelArea);
+
+	p_audio = new FormAudio();
+	p_audio->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_AUDIO, &context);
+	p_audio->OnInitialUpdate();
+	p_audio->ShowWindow(SW_SHOW);
+
+
+	p_test = new Formtest();
+	p_test->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_DIALOG2, &context);
+	p_test->OnInitialUpdate();
+	p_test->ShowWindow(SW_HIDE);
+	/*
+	m_pForm3 = new CMyForm3();
+	m_pForm3->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_FORM3, &context);
+	m_pForm3->OnInitialUpdate();
+	m_pForm3->ShowWindow(SW_HIDE);*/
+
+	//GetDlgItem(IDC_STATIC_RECT)->DestroyWindow();
+}
+
+void CBUEDUDlg::ShowForm(int idx)
+{
+	switch (idx)
+	{
+	case 0:
+		p_audio->ShowWindow(SW_SHOW);
+		p_test->ShowWindow(SW_HIDE);
+
+		break;
+	case 1:
+		p_audio->ShowWindow(SW_HIDE);
+		p_test->ShowWindow(SW_SHOW);
+		break;
+		/*
+	case 2:
+		m_pForm1->ShowWindow(SW_HIDE);
+		m_pForm2->ShowWindow(SW_HIDE);
+		m_pForm3->ShowWindow(SW_SHOW);
+		break;
+	}*/
+	}
+}
+
 // The system calls this function to obtain the cursor to display while the user drags
 //  the minimized window.
 HCURSOR CBUEDUDlg::OnQueryDragIcon()
@@ -166,8 +219,15 @@ HCURSOR CBUEDUDlg::OnQueryDragIcon()
 
 void CBUEDUDlg::OnBnClickedButton1()
 {
-	
+	ShowForm(0);
 
 
 	// TODO: Add your control notification handler code here
+}
+
+
+void CBUEDUDlg::OnBnClickedButton2()
+{
+	ShowForm(1);
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }

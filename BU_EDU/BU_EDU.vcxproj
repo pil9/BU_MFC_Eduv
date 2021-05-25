@@ -189,6 +189,8 @@
   <ItemGroup>
     <ClInclude Include="BU_EDU.h" />
     <ClInclude Include="BU_EDUDlg.h" />
+    <ClInclude Include="FormAudio.h" />
+    <ClInclude Include="Formtest.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
@@ -197,6 +199,8 @@
   <ItemGroup>
     <ClCompile Include="BU_EDU.cpp" />
     <ClCompile Include="BU_EDUDlg.cpp" />
+    <ClCompile Include="FormAudio.cpp" />
+    <ClCompile Include="Formtest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
