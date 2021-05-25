@@ -74,6 +74,7 @@ BEGIN_MESSAGE_MAP(CBUEDUDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, &CBUEDUDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CBUEDUDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CBUEDUDlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -198,13 +199,12 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_audio->ShowWindow(SW_HIDE);
 		p_test->ShowWindow(SW_SHOW);
 		break;
-		/*
-	case 2:
-		m_pForm1->ShowWindow(SW_HIDE);
-		m_pForm2->ShowWindow(SW_HIDE);
-		m_pForm3->ShowWindow(SW_SHOW);
+		
+	case 2://레벨테스트 페이지로 이동으로 사용하겠슴
+		p_audio->ShowWindow(SW_HIDE);
+		p_test->ShowWindow(SW_HIDE);
+		p_Level->ShowWindow(SW_SHOW);
 		break;
-	}*/
 	}
 }
 
@@ -229,5 +229,12 @@ void CBUEDUDlg::OnBnClickedButton1()
 void CBUEDUDlg::OnBnClickedButton2()
 {
 	ShowForm(1);
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CBUEDUDlg::OnBnClickedButton3()
+{
+	ShowForm(2);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }

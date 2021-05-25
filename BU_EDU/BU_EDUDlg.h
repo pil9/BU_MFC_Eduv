@@ -8,6 +8,7 @@
 #include "Mmsystem.h"
 #include "FormAudio.h"
 #include "Formtest.h"
+#include "FormLevel.h"
 #pragma once
 
 typedef struct BufferNode
@@ -36,6 +37,7 @@ public:
 
 	FormAudio *p_audio;
 	Formtest *p_test;
+	FormLevel* p_Level;
 	void AllocForms();
 	void ShowForm(int idx);
 
@@ -52,4 +54,5 @@ protected:
 public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton3();
 };
