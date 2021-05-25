@@ -1,0 +1,7 @@
+﻿  BU_EDU.cpp
+  BU_EDUDlg.cpp
+c:\users\kyj\source\repos\bu_edu\bu_edu\bu_edudlg.cpp(63): warning C4101: 'pFormat': unreferenced local variable
+c:\users\kyj\source\repos\bu_edu\bu_edu\bu_edudlg.cpp(61): warning C4101: 'WaveInHdr': unreferenced local variable
+c:\users\kyj\source\repos\bu_edu\bu_edu\bu_edudlg.cpp(59): warning C4101: 'hWaveIn': unreferenced local variable
+  Generating Code...
+  BU_EDU.vcxproj -> C:\Users\kyj\source\repos\BU_EDU\Debug\BU_EDU.exe
