@@ -200,11 +200,12 @@ void CBUEDUDlg::ShowForm(int idx)
 	case 0:
 		p_audio->ShowWindow(SW_SHOW);
 		p_test->ShowWindow(SW_HIDE);
-
+		p_Level->ShowWindow(SW_HIDE);
 		break;
 	case 1:
 		p_audio->ShowWindow(SW_HIDE);
 		p_test->ShowWindow(SW_SHOW);
+		p_Level->ShowWindow(SW_HIDE);
 		break;
 		
 	case 2://레벨테스트 페이지로 이동으로 사용하겠슴
