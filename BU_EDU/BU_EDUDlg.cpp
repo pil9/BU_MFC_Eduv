@@ -177,6 +177,13 @@ void CBUEDUDlg::AllocForms()
 	p_test->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_DIALOG2, &context);
 	p_test->OnInitialUpdate();
 	p_test->ShowWindow(SW_HIDE);
+
+
+	p_Level = new FormLevel();
+	p_Level->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_LEVEL, &context);
+	p_Level->OnInitialUpdate();
+	p_Level->ShowWindow(SW_HIDE);
+
 	/*
 	m_pForm3 = new CMyForm3();
 	m_pForm3->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_FORM3, &context);

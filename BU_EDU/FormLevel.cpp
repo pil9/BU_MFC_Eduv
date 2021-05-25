@@ -11,7 +11,7 @@
 IMPLEMENT_DYNCREATE(FormLevel, CFormView)
 
 FormLevel::FormLevel()
-	: CFormView(IDD_LEVEL)
+	: CFormView(IDD_FORM_LEVEL)
 {
 
 }
@@ -28,7 +28,17 @@ void FormLevel::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(FormLevel, CFormView)
 END_MESSAGE_MAP()
 
+BOOL FormLevel::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext)
+{
 
+
+	return CFormView::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, nID, pContext);
+}
+
+void FormLevel::OnInitialUpdate()
+{
+
+}
 // FormLevel 진단
 
 #ifdef _DEBUG

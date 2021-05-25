@@ -1,8 +1,1 @@
-﻿  BU_EDU.cpp
-c:\work.bu_mfc_eduv\bu_edu\bu_edudlg.h(17): warning C4091: 'typedef ': 변수를 선언하지 않으면 'BufferNode' 왼쪽은 무시됩니다.
-  BU_EDUDlg.cpp
-c:\work.bu_mfc_eduv\bu_edu\bu_edudlg.h(17): warning C4091: 'typedef ': 변수를 선언하지 않으면 'BufferNode' 왼쪽은 무시됩니다.
-  FormAudio.cpp
-  Formtest.cpp
-  코드를 생성하고 있습니다...
-  BU_EDU.vcxproj -> C:\work.BU_MFC_Eduv\x64\Debug\BU_EDU.exe
+﻿  BU_EDU.vcxproj -> C:\Users\rla54\Desktop\mfc2\x64\Debug\BU_EDU.exe
