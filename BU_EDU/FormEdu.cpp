@@ -26,6 +26,7 @@ FormEdu::~FormEdu()
 void FormEdu::DoDataExchange(CDataExchange* pDX)
 {
 	CFormView::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, result);
 }
 
 BEGIN_MESSAGE_MAP(FormEdu, CFormView)
@@ -78,10 +79,10 @@ void FormEdu::OnBnClickedButton1()
 	a = rand() % 3;
 
 	image4.Load(_T("./res/여우.jpg"));
-	image4.BitBlt(dc.m_hDC, 380, 150, 200, 200, 200, 180, SRCCOPY);
+	image4.BitBlt(dc.m_hDC, 255, 140, 200, 200, 200, 180, SRCCOPY);
 	CButton* rr1 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
 	rr1->SetWindowTextW(_T("Fox"));
-	//rr1->SetCheck(false);
+	rr1->SetCheck(false);
 	count++; //1
 
 	GetDlgItem(IDC_BUTTON1)->EnableWindow(FALSE);
@@ -113,7 +114,7 @@ void FormEdu::OnBnClickedButton2()
 
 	CString q1;
 	CString rq1;
-	if (count == 1) {
+	if (count == 1 || count == 0 ) {
 		rq1 = L"fox";
 	}
 	if (count == 2) {
@@ -132,24 +133,24 @@ void FormEdu::OnBnClickedButton2()
 		count++;//2
 		//Invalidate();
 		if (count == 2) {
-			CButton* title = (CButton*)GetDlgItem(IDC_STATIC);
+			CButton* title = (CButton*)GetDlgItem(IDC_STATIC3);
 			title->SetWindowTextW(_T("사과는 영어로 Apple !"));
 			title->SetCheck(false);
 
 			image5.Load(_T("./res/사과.jpg"));
-			image5.BitBlt(dc.m_hDC, 380, 150, 200, 200, 200, 180, SRCCOPY);
+			image5.BitBlt(dc.m_hDC, 255, 140, 200, 200, 200, 180, SRCCOPY);
 
 			CButton* rr1 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
 			rr1->SetWindowTextW(_T("Apple"));
 			rr1->SetCheck(false);
 		}
 		if (count == 3) {
-			CButton* title = (CButton*)GetDlgItem(IDC_STATIC);
+			CButton* title = (CButton*)GetDlgItem(IDC_STATIC3);
 			title->SetWindowTextW(_T("생선은 영어로 Fish !"));
 			title->SetCheck(false);
 
 			image6.Load(_T("./res/생선.jpg"));
-			image6.BitBlt(dc.m_hDC, 380, 150, 200, 200, 0, 0, SRCCOPY);
+			image6.BitBlt(dc.m_hDC, 255, 140, 200, 200, 0, 0, SRCCOPY);
 
 			CButton* rr1 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
 			rr1->SetWindowTextW(_T("Fish"));
