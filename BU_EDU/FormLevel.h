@@ -14,6 +14,10 @@ protected:
 
 public:
 	FormLevel();
+
+	CImage image1, image2, image3;
+	int b_state = 0, Timer = 60;
+
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_FORM_LEVEL };
 #endif
@@ -34,6 +38,9 @@ public:
 	virtual void OnInitialUpdate();
 
 
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };
 
 
