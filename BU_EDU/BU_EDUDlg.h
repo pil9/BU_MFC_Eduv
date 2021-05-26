@@ -9,6 +9,7 @@
 #include "FormAudio.h"
 #include "Formtest.h"
 #include "FormLevel.h"
+#include "FormEdu.h"
 #pragma once
 
 typedef struct BufferNode
@@ -38,6 +39,7 @@ public:
 	FormAudio *p_audio;
 	Formtest *p_test;
 	FormLevel* p_Level;
+	FormEdu* p_Edu;
 	void AllocForms();
 	void ShowForm(int idx);
 
@@ -55,4 +57,5 @@ public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton4();
 };

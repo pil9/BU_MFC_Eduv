@@ -75,6 +75,7 @@ BEGIN_MESSAGE_MAP(CBUEDUDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &CBUEDUDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CBUEDUDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, &CBUEDUDlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON4, &CBUEDUDlg::OnBnClickedButton4)
 END_MESSAGE_MAP()
 
 
@@ -184,6 +185,11 @@ void CBUEDUDlg::AllocForms()
 	p_Level->OnInitialUpdate();
 	p_Level->ShowWindow(SW_HIDE);
 
+	p_Edu = new FormEdu();
+	p_Edu->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_LEVEL, &context);
+	p_Edu->OnInitialUpdate();
+	p_Edu->ShowWindow(SW_HIDE);
+
 	/*
 	m_pForm3 = new CMyForm3();
 	m_pForm3->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_FORM3, &context);
@@ -201,17 +207,27 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_audio->ShowWindow(SW_SHOW);
 		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_HIDE);
+		p_Edu->ShowWindow(SW_HIDE);
 		break;
 	case 1:
 		p_audio->ShowWindow(SW_HIDE);
 		p_test->ShowWindow(SW_SHOW);
 		p_Level->ShowWindow(SW_HIDE);
+		p_Edu->ShowWindow(SW_HIDE);
 		break;
 		
 	case 2://레벨테스트 페이지로 이동으로 사용하겠슴
 		p_audio->ShowWindow(SW_HIDE);
 		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_SHOW);
+		p_Edu->ShowWindow(SW_HIDE);
+		break;
+
+	case 3://레벨테스트 페이지로 이동으로 사용하겠슴
+		p_audio->ShowWindow(SW_HIDE);
+		p_test->ShowWindow(SW_HIDE);
+		p_Level->ShowWindow(SW_HIDE);
+		p_Edu->ShowWindow(SW_SHOW);
 		break;
 	}
 }
@@ -244,5 +260,12 @@ void CBUEDUDlg::OnBnClickedButton2()
 void CBUEDUDlg::OnBnClickedButton3()
 {
 	ShowForm(2);
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CBUEDUDlg::OnBnClickedButton4()
+{
+	ShowForm(3);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
