@@ -42,6 +42,9 @@
     <ClInclude Include="FormLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FormEdu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BU_EDU.cpp">
@@ -62,6 +65,9 @@
     <ClCompile Include="FormLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FormEdu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BUEDU.rc">
@@ -75,6 +81,33 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\BU_EDU.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Users\ljp33\Desktop\main_btn_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Users\ljp33\Desktop\main_btn_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\users\ljp33\desktop\bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Users\ljp33\Desktop\sub_btn_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Users\ljp33\Desktop\background.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\background.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_logo.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

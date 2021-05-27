@@ -34,6 +34,7 @@ public:
 	HBITMAP m_hBitmap;
 	BITMAP m_bitmap;
 	afx_msg void OnBnClickedButton3();
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };
 
 

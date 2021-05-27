@@ -59,10 +59,7 @@ public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton3();
-<<<<<<< HEAD
 	CBitmapButton main_btn1;
 	CBitmapButton sub_btn1;
-=======
 	afx_msg void OnBnClickedButton4();
->>>>>>> 59d5e8229970bb3de6c587a38d2d03fd19e6f09b
 };

@@ -116,7 +116,7 @@ BOOL CBUEDUDlg::OnInitDialog()
 
 	// TODO: Add extra initialization here
 	AllocForms();
-	FormAudio::OnPaint();
+	//FormAudio::OnPaint();
 	main_btn1.LoadBitmaps(IDB_MAIN_BTN1, NULL, NULL, NULL);
 	main_btn1.SizeToContent();
 	sub_btn1.LoadBitmaps(IDB_SUB_BTN1, NULL, NULL, NULL);
