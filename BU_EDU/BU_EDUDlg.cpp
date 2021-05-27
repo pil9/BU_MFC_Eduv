@@ -66,6 +66,8 @@ CBUEDUDlg::CBUEDUDlg(CWnd* pParent /*=nullptr*/)
 void CBUEDUDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_BUTTON1, main_btn1);
+	DDX_Control(pDX, IDC_BUTTON2, sub_btn1);
 }
 
 BEGIN_MESSAGE_MAP(CBUEDUDlg, CDialogEx)
@@ -83,7 +85,8 @@ END_MESSAGE_MAP()
 BOOL CBUEDUDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
+	m_hBitmap = LoadBitmap(AfxGetApp()->m_hInstance, MAKEINTRESOURCE(IDB_BG));
+	GetObject(m_hBitmap, sizeof(BITMAP), &m_bitmap);
 	
 	// Add "About..." menu item to system menu.
 
@@ -112,6 +115,11 @@ BOOL CBUEDUDlg::OnInitDialog()
 
 	// TODO: Add extra initialization here
 	AllocForms();
+	FormAudio::OnPaint();
+	main_btn1.LoadBitmaps(IDB_MAIN_BTN1, NULL, NULL, NULL);
+	main_btn1.SizeToContent();
+	sub_btn1.LoadBitmaps(IDB_SUB_BTN1, NULL, NULL, NULL);
+	sub_btn1.SizeToContent();
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -134,27 +142,20 @@ void CBUEDUDlg::OnSysCommand(UINT nID, LPARAM lParam)
 
 void CBUEDUDlg::OnPaint()
 {
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
+	CPaintDC dc(this); // device context for painting
+	CRect rect;
+	GetWindowRect(&rect); // 스크린과 호환되는 DC생성.
+	HDC hMemDC = CreateCompatibleDC(dc);
+	SetStretchBltMode(hMemDC, HALFTONE); // 호환DC에 비트맵을 선정.
+	SelectObject(hMemDC, m_hBitmap); // 메모리 DC에서 스크린 DC로 이미지 복사
+	StretchBlt(dc, 0, 0, rect.Width(), rect.Height(), hMemDC, 0, 0, m_bitmap.bmWidth, m_bitmap.bmHeight, SRCCOPY); // 메모리 DC삭제
+	DeleteDC(hMemDC);
 
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CDialogEx::OnPaint();
-	}
+	CStatic* bitmaptemp = (CStatic*)GetDlgItem(IDC_STATIC_LOGO);
+	CBitmap image;
+	image.LoadBitmap(IDB_MAIN_LOGO);
+	bitmaptemp->SetBitmap(image);
 }
 
 void CBUEDUDlg::AllocForms()
@@ -227,6 +228,7 @@ HCURSOR CBUEDUDlg::OnQueryDragIcon()
 
 void CBUEDUDlg::OnBnClickedButton1()
 {
+	Invalidate();
 	ShowForm(0);
 
 
