@@ -33,6 +33,7 @@ BEGIN_MESSAGE_MAP(FormEdu, CFormView)
 	ON_BN_CLICKED(IDC_BUTTON1, &FormEdu::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON3, &FormEdu::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON2, &FormEdu::OnBnClickedButton2)
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -162,4 +163,11 @@ void FormEdu::OnBnClickedButton2()
 	}
 
 
+}
+
+
+HBRUSH FormEdu::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CreateSolidBrush(RGB(246, 238, 225));
+	return hbr;
 }

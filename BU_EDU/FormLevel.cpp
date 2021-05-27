@@ -29,6 +29,7 @@ BEGIN_MESSAGE_MAP(FormLevel, CFormView)
 	ON_BN_CLICKED(IDC_BUTTON1, &FormLevel::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &FormLevel::OnBnClickedButton2)
 	ON_WM_TIMER()
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 BOOL FormLevel::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext)
@@ -155,4 +156,11 @@ void FormLevel::OnTimer(UINT_PTR nIDEvent)
 	//CDialog::OnTimer(nIDEvent);
 
 	CFormView::OnTimer(nIDEvent);
+}
+
+
+HBRUSH FormLevel::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CreateSolidBrush(RGB(246, 238, 225));
+	return hbr;
 }

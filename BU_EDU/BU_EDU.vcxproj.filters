@@ -45,6 +45,9 @@
     <ClInclude Include="FormEdu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FormChat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BU_EDU.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FormEdu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormChat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -108,6 +114,54 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\main_logo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn1_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn2_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn3_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn4_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn5_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn6_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sub_btn7_on.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

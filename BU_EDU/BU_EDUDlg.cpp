@@ -34,6 +34,8 @@ public:
 // Implementation
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
@@ -46,6 +48,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -58,7 +61,7 @@ CBUEDUDlg::CBUEDUDlg(CWnd* pParent /*=nullptr*/)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	
-
+	
 
 
 }
@@ -68,6 +71,15 @@ void CBUEDUDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_BUTTON1, main_btn1);
 	DDX_Control(pDX, IDC_BUTTON2, sub_btn1);
+	DDX_Control(pDX, IDC_BUTTON3, sub_btn2);
+	DDX_Control(pDX, IDC_BUTTON4, sub_btn3);
+
+	DDX_Control(pDX, IDC_BUTTON5, main_btn2);
+	DDX_Control(pDX, IDC_BUTTON6, sub_btn4);
+	DDX_Control(pDX, IDC_BUTTON8, sub_btn5);
+	DDX_Control(pDX, IDC_BUTTON9, sub_btn6);
+	DDX_Control(pDX, IDC_BUTTON10, sub_btn7);
+	DDX_Control(pDX, IDC_BUTTON7, onokbtn);
 }
 
 BEGIN_MESSAGE_MAP(CBUEDUDlg, CDialogEx)
@@ -78,6 +90,13 @@ BEGIN_MESSAGE_MAP(CBUEDUDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON2, &CBUEDUDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, &CBUEDUDlg::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON4, &CBUEDUDlg::OnBnClickedButton4)
+	ON_STN_CLICKED(IDC_STATIC_RECT, &CBUEDUDlg::OnStnClickedStaticRect)
+	ON_BN_CLICKED(IDC_BUTTON7, &CBUEDUDlg::OnBnClickedButton7)
+	ON_WM_CREATE()
+	ON_BN_CLICKED(IDC_BUTTON9, &CBUEDUDlg::OnBnClickedButton9)
+	ON_BN_CLICKED(IDC_BUTTON6, &CBUEDUDlg::OnBnClickedButton6)
+	ON_BN_CLICKED(IDC_BUTTON8, &CBUEDUDlg::OnBnClickedButton8)
+	ON_BN_CLICKED(IDC_BUTTON10, &CBUEDUDlg::OnBnClickedButton10)
 END_MESSAGE_MAP()
 
 
@@ -119,8 +138,27 @@ BOOL CBUEDUDlg::OnInitDialog()
 	//FormAudio::OnPaint();
 	main_btn1.LoadBitmaps(IDB_MAIN_BTN1, NULL, NULL, NULL);
 	main_btn1.SizeToContent();
-	sub_btn1.LoadBitmaps(IDB_SUB_BTN1, NULL, NULL, NULL);
+	main_btn2.LoadBitmaps(IDB_MAIN_BTN2, NULL, NULL, NULL);
+	main_btn2.SizeToContent();
+	sub_btn1.LoadBitmaps(IDB_SUB_BTN1, IDB_SUB_BTN1_ON, NULL, NULL);
 	sub_btn1.SizeToContent();
+	sub_btn2.LoadBitmaps(IDB_SUB_BTN2, IDB_SUB_BTN2_ON, NULL, NULL);
+	sub_btn2.SizeToContent();
+	sub_btn3.LoadBitmaps(IDB_SUB_BTN3, IDB_SUB_BTN3_ON, NULL, NULL);
+	sub_btn3.SizeToContent();
+	sub_btn4.LoadBitmaps(IDB_SUB_BTN4, IDB_SUB_BTN4_ON, NULL, NULL);
+	sub_btn4.SizeToContent();
+	sub_btn5.LoadBitmaps(IDB_SUB_BTN5, IDB_SUB_BTN5_ON, NULL, NULL);
+	sub_btn5.SizeToContent();
+	sub_btn6.LoadBitmaps(IDB_SUB_BTN6, IDB_SUB_BTN6_ON, NULL, NULL);
+	sub_btn6.SizeToContent();
+	sub_btn7.LoadBitmaps(IDB_SUB_BTN7, IDB_SUB_BTN7_ON, NULL, NULL);
+	sub_btn7.SizeToContent();
+	
+	
+
+	
+	
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -134,6 +172,7 @@ void CBUEDUDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	else
 	{
 		CDialogEx::OnSysCommand(nID, lParam);
+		
 	}
 }
 
@@ -157,6 +196,9 @@ void CBUEDUDlg::OnPaint()
 	CBitmap image;
 	image.LoadBitmap(IDB_MAIN_LOGO);
 	bitmaptemp->SetBitmap(image);
+	
+	
+
 }
 
 void CBUEDUDlg::AllocForms()
@@ -174,6 +216,10 @@ void CBUEDUDlg::AllocForms()
 	p_audio->OnInitialUpdate();
 	p_audio->ShowWindow(SW_SHOW);
 
+	/*CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
+	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
+		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);*/
+
 
 	p_test = new Formtest();
 	p_test->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_DIALOG2, &context);
@@ -190,6 +236,11 @@ void CBUEDUDlg::AllocForms()
 	p_Edu->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_LEVEL, &context);
 	p_Edu->OnInitialUpdate();
 	p_Edu->ShowWindow(SW_HIDE);
+
+	p_Chat = new FormChat();
+	p_Chat->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_CHAT, &context);
+	p_Chat->OnInitialUpdate();
+	p_Chat->ShowWindow(SW_HIDE);
 
 	/*
 	m_pForm3 = new CMyForm3();
@@ -209,12 +260,15 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_HIDE);
+		p_Chat->ShowWindow(SW_HIDE);
+		
 		break;
 	case 1:
 		p_audio->ShowWindow(SW_HIDE);
 		p_test->ShowWindow(SW_SHOW);
 		p_Level->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_HIDE);
+		p_Chat->ShowWindow(SW_HIDE);
 		break;
 		
 	case 2://레벨테스트 페이지로 이동으로 사용하겠슴
@@ -222,6 +276,7 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_SHOW);
 		p_Edu->ShowWindow(SW_HIDE);
+		p_Chat->ShowWindow(SW_HIDE);
 		break;
 
 	case 3://레벨테스트 페이지로 이동으로 사용하겠슴
@@ -229,8 +284,18 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_SHOW);
+		p_Chat->ShowWindow(SW_HIDE);
+		break;
+
+	case 4:
+		p_audio->ShowWindow(SW_HIDE);
+		p_test->ShowWindow(SW_HIDE);
+		p_Level->ShowWindow(SW_HIDE);
+		p_Edu->ShowWindow(SW_HIDE);
+		p_Chat->ShowWindow(SW_SHOW);
 		break;
 	}
+
 }
 
 // The system calls this function to obtain the cursor to display while the user drags
@@ -244,9 +309,10 @@ HCURSOR CBUEDUDlg::OnQueryDragIcon()
 
 void CBUEDUDlg::OnBnClickedButton1()
 {
-	Invalidate();
-	ShowForm(0);
-
+	
+	CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
+	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
+		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
 
 	// TODO: Add your control notification handler code here
 }
@@ -255,19 +321,80 @@ void CBUEDUDlg::OnBnClickedButton1()
 void CBUEDUDlg::OnBnClickedButton2()
 {
 	ShowForm(1);
+	CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
+	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
+		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
 
 
 void CBUEDUDlg::OnBnClickedButton3()
 {
-	ShowForm(2);
+	
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
 
 
 void CBUEDUDlg::OnBnClickedButton4()
 {
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CBUEDUDlg::OnStnClickedStaticRect()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CBUEDUDlg::OnBnClickedButton7()
+{
+	OnOK();
+}
+
+
+int CBUEDUDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CDialogEx::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	
+	return 0;
+}
+
+
+void CBUEDUDlg::OnBnClickedButton9()
+{
+	ShowForm(4);
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+HBRUSH CAboutDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CreateSolidBrush(RGB(246, 238, 225));
+	return hbr;
+}
+
+
+void CBUEDUDlg::OnBnClickedButton6()
+{
+	ShowForm(2);
+
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CBUEDUDlg::OnBnClickedButton8()
+{
 	ShowForm(3);
+
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CBUEDUDlg::OnBnClickedButton10()
+{
+	ShowForm(0);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }

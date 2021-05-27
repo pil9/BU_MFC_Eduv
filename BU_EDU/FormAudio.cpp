@@ -83,6 +83,7 @@ void FormAudio::OnBnClickedButton3()
 
 HBRUSH FormAudio::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
-	HBRUSH hbr = CreateSolidBrush(RGB(255, 255, 255));
+	HBRUSH hbr = CreateSolidBrush(RGB(246, 238, 225));
+	
 	return hbr;
 }

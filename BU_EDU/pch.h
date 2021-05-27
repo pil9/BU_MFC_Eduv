@@ -11,5 +11,6 @@
 #include "framework.h"
 #include <afxext.h>
 #include <afxext.h>
+#include <afxext.h>
 
 #endif //PCH_H

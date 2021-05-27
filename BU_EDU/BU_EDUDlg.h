@@ -10,6 +10,7 @@
 #include "Formtest.h"
 #include "FormLevel.h"
 #include "FormEdu.h"
+#include "FormChat.h"
 #pragma once
 
 typedef struct BufferNode
@@ -35,11 +36,12 @@ public:
 
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
-
+	CButton * onokbutton;
 	FormAudio *p_audio;
 	Formtest *p_test;
 	FormLevel* p_Level;
 	FormEdu* p_Edu;
+	FormChat* p_Chat;
 	void AllocForms();
 	void ShowForm(int idx);
 
@@ -60,6 +62,21 @@ public:
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton3();
 	CBitmapButton main_btn1;
+	CBitmapButton main_btn2;
 	CBitmapButton sub_btn1;
+	CBitmapButton sub_btn2;
+	CBitmapButton sub_btn3;
+	CBitmapButton sub_btn4;
+	CBitmapButton sub_btn5;
+	CBitmapButton sub_btn6;
+	CBitmapButton sub_btn7;
 	afx_msg void OnBnClickedButton4();
+	afx_msg void OnStnClickedStaticRect();
+	afx_msg void OnBnClickedButton7();
+	CButton onokbtn;
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnBnClickedButton9();
+	afx_msg void OnBnClickedButton6();
+	afx_msg void OnBnClickedButton8();
+	afx_msg void OnBnClickedButton10();
 };
