@@ -11,10 +11,14 @@
 #define IDD_FORM_AUDIO                  130
 #define IDD_DIALOG2                     132
 #define IDD_FORM_LEVEL                  135
+<<<<<<< HEAD
 #define IDB_MAIN_BTN1                   138
 #define IDB_SUB_BTN1                    140
 #define IDB_BG                          141
 #define IDB_MAIN_LOGO                   142
+=======
+#define IDD_FORM_EDU                    137
+>>>>>>> 59d5e8229970bb3de6c587a38d2d03fd19e6f09b
 #define IDC_BUTTON1                     1000
 #define IDC_BUTTON2                     1001
 #define IDC_LIST1                       1001
@@ -23,15 +27,33 @@
 #define IDC_BUTTON5                     1004
 #define IDC_BUTTON6                     1005
 #define IDC_STATIC_RECT                 1006
+<<<<<<< HEAD
 #define IDC_STATIC_LOGO                 1007
+=======
+#define IDC_result1                     1007
+#define IDC_RADIO1                      1008
+#define IDC_RADIO2                      1009
+#define IDC_RADIO3                      1010
+#define IDC_RADIO4                      1011
+#define IDC_RADIO5                      1012
+#define IDC_RADIO6                      1013
+#define IDC_EDIT1                       1014
+#define IDC_STATIC3                     1015
+>>>>>>> 59d5e8229970bb3de6c587a38d2d03fd19e6f09b
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
+<<<<<<< HEAD
 #define _APS_NEXT_RESOURCE_VALUE        143
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1008
+=======
+#define _APS_NEXT_RESOURCE_VALUE        139
+#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_CONTROL_VALUE         1016
+>>>>>>> 59d5e8229970bb3de6c587a38d2d03fd19e6f09b
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

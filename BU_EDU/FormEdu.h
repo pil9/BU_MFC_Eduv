@@ -2,24 +2,23 @@
 
 
 
-// FormLevel 폼 보기
+// FormEdu 폼 보기
 
-class FormLevel : public CFormView
+class FormEdu : public CFormView
 {
-	DECLARE_DYNCREATE(FormLevel)
-
-protected:
-	           // 동적 만들기에 사용되는 protected 생성자입니다.
-	virtual ~FormLevel();
+	DECLARE_DYNCREATE(FormEdu)
 
 public:
-	FormLevel();
+	FormEdu();           // 동적 만들기에 사용되는 protected 생성자입니다.
+	virtual ~FormEdu();
 
-	CImage image1, image2, image3;
-	int b_state = 0, Timer = 60;
+	CImage image4, image5, image6;
+	CFont m_font;
+	int count = 0;
 
+public:
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_FORM_LEVEL };
+	enum { IDD = IDD_FORM_EDU };
 #endif
 #ifdef _DEBUG
 	virtual void AssertValid() const;
@@ -37,10 +36,10 @@ public:
 	virtual BOOL Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext = NULL);
 	virtual void OnInitialUpdate();
 
-
 	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedButton3();
 	afx_msg void OnBnClickedButton2();
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	CString result;
 };
 
 
