@@ -17,6 +17,8 @@ public:
 
 	CImage image1, image2, image3;
 	int b_state = 0, Timer = 60;
+	CString rq1;
+	int wran;
 
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_FORM_LEVEL };

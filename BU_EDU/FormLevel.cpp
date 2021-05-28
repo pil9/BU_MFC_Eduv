@@ -35,7 +35,6 @@ END_MESSAGE_MAP()
 BOOL FormLevel::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext)
 {
 
-
 	return CFormView::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, nID, pContext);
 }
 
@@ -66,9 +65,9 @@ void FormLevel::Dump(CDumpContext& dc) const
 void FormLevel::OnBnClickedButton1()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	int wran = 0;
+	int wran;
 	srand((int)time(NULL));
-	//wran = rand() % 2;
+	wran = rand() % 2;
 	CClientDC dc(this);
 
 	if (wran == 0) {
@@ -78,6 +77,14 @@ void FormLevel::OnBnClickedButton1()
 		image1.BitBlt(dc.m_hDC, 40, 150, 150, 150, 0, 0, SRCCOPY);
 		image2.BitBlt(dc.m_hDC, 280, 150, 150, 150, 0, 0, SRCCOPY);
 		image3.BitBlt(dc.m_hDC, 520, 150, 150, 150, 100, 90, SRCCOPY);
+	}
+	else if (wran == 1) {
+		image1.Load(_T("./res/구름.jpg"));
+		image2.Load(_T("./res/바나나.jpg"));
+		image3.Load(_T("./res/배고픔.jpg"));
+		image1.BitBlt(dc.m_hDC, 40, 150, 150, 150, 200, 200, SRCCOPY);
+		image2.BitBlt(dc.m_hDC, 280, 150, 150, 150, 0, 0, SRCCOPY);
+		image3.BitBlt(dc.m_hDC, 520, 150, 150, 150, 0, 0, SRCCOPY);
 	}
 
 	//SetDlgItemText(IDC_RADIO1, _T("현재 점수 0 점"));
@@ -99,14 +106,28 @@ void FormLevel::OnBnClickedButton2()
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	int testsum = 0;
 	CString q1;
-	CString rq1 = L"fire";
+	if (wran == 0) {
+		rq1 = L"fire";
+	}
+	else if (wran == 1) {
+		rq1 = L"cloud";
+	}
+
 	GetDlgItemText(IDC_result1, q1);
 	if (q1 == rq1) {
 		testsum++;
 	}
-	CButton* c1 = (CButton*)GetDlgItem(IDC_RADIO2);
-	if (c1->GetCheck()) {
-		testsum++;
+	CButton* qf2 = (CButton*)GetDlgItem(IDC_RADIO2);
+	CButton* qf1 = (CButton*)GetDlgItem(IDC_RADIO1);
+	if (wran == 0) {
+		if (qf2->GetCheck()) {//정답 토마토
+			testsum++;
+		}
+	}
+	else if (wran == 1) {
+		if (qf1->GetCheck()) {//정답 바나나
+			testsum++;
+		}
 	}
 	CButton* c2 = (CButton*)GetDlgItem(IDC_RADIO4);
 	if (c2->GetCheck()) {
