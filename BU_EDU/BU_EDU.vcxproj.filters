@@ -119,10 +119,10 @@
     <Image Include="res\main_btn1.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\sub_btn1.bmp">
+    <Image Include="res\main_btn2.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\main_btn2.bmp">
+    <Image Include="res\sub_btn1.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\sub_btn1_on.bmp">
