@@ -230,6 +230,9 @@
     <Image Include="..\..\Users\ljp33\Desktop\main_btn_1.png" />
     <Image Include="..\..\Users\ljp33\Desktop\sub_btn_1.bmp" />
     <Image Include="res\background.bmp" />
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\bitmap4.bmp" />
+    <Image Include="res\buri.bmp" />
     <Image Include="res\BU_EDU.ico" />
     <Image Include="res\main_btn1.bmp" />
     <Image Include="res\main_btn2.bmp" />

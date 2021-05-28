@@ -1,6 +1,17 @@
 ﻿#pragma once
 
+struct Dictionary
+{
+	CString English;
+	CString Korea;
 
+	Dictionary()
+	{
+		English.Empty();
+		Korea.Empty();
+
+	}
+};
 
 // FormChat 폼 보기
 
@@ -11,6 +22,12 @@ class FormChat : public CFormView
 public:
 	FormChat();           // 동적 만들기에 사용되는 protected 생성자입니다.
 	virtual ~FormChat();
+
+public:
+	CArray<Dictionary*, Dictionary*> m_arrDictionary; // 배열 변수 선언
+	CImage image1;
+	HBITMAP m_hBitmap;
+	BITMAP m_bitmap;
 
 public:
 #ifdef AFX_DESIGN_TIME
@@ -33,6 +50,11 @@ public:
 	virtual void OnInitialUpdate();
 
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnEnChangeEdit2();
+	afx_msg void OnBnClickedButton1();
+	CString message;
+	CString result;
+	CStatic Buricon;
 };
 
 
