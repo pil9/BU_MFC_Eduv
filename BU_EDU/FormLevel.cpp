@@ -82,7 +82,7 @@ void FormLevel::OnBnClickedButton1()
 		image3.Load(_T("./res/조심해.jpg"));
 		image1.BitBlt(dc.m_hDC, 40, 150, 150, 150, 0, 0, SRCCOPY);
 		image2.BitBlt(dc.m_hDC, 280, 150, 150, 150, 0, 0, SRCCOPY);
-		image3.BitBlt(dc.m_hDC, 520, 150, 150, 150, 100, 90, SRCCOPY);
+		image3.BitBlt(dc.m_hDC, 530, 150, 150, 150, 100, 90, SRCCOPY);
 	}
 	else if (wran == 1) {
 		image1.Load(_T("./res/구름.jpg"));
@@ -90,7 +90,7 @@ void FormLevel::OnBnClickedButton1()
 		image3.Load(_T("./res/배고픔.jpg"));
 		image1.BitBlt(dc.m_hDC, 40, 150, 150, 150, 200, 200, SRCCOPY);
 		image2.BitBlt(dc.m_hDC, 280, 150, 150, 150, 0, 0, SRCCOPY);
-		image3.BitBlt(dc.m_hDC, 520, 150, 150, 150, 0, 0, SRCCOPY);
+		image3.BitBlt(dc.m_hDC, 530, 150, 150, 150, 0, 0, SRCCOPY);
 	}
 
 	//SetDlgItemText(IDC_RADIO1, _T("현재 점수 0 점"));
@@ -102,8 +102,9 @@ void FormLevel::OnBnClickedButton1()
 	//CPaintDC dc(this);
 	COLORREF c = RGB(255, 0, 0); dc.SetTextColor(c);
 	CString str; str.Format(_T("남은시간 : %d 초"), Timer);
-	dc.TextOutW(295, 30, str);
+	dc.TextOutW(295, 50, str);
 
+	GetDlgItem(IDC_BUTTON1)->ShowWindow(SW_HIDE);
 }
 
 
@@ -158,7 +159,7 @@ void FormLevel::OnBnClickedButton2()
 
 	b_state = 0;
 	KillTimer(1);
-
+	GetDlgItem(IDC_BUTTON2)->ShowWindow(SW_HIDE);
 }
 
 
@@ -168,12 +169,12 @@ void FormLevel::OnTimer(UINT_PTR nIDEvent)
 	if (b_state == 1 && Timer > 0) {
 		//Invalidate();
 		UpdateData(false);
-		InvalidateRect(CRect(295, 30, 750, 100), TRUE);
+		InvalidateRect(CRect(295, 50, 750, 100), TRUE);
 		Timer--;
 		CPaintDC dc(this);
 		COLORREF c = RGB(255, 0, 0); dc.SetTextColor(c);
 		CString str; str.Format(_T("남은시간 : %d 초"), Timer);
-		dc.TextOutW(295, 30, str);
+		dc.TextOutW(295, 50, str);
 
 		if (Timer < 1) {
 			FormLevel::OnBnClickedButton2();

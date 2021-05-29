@@ -30,6 +30,7 @@ void FormChat::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BUTTON1, m_submit);
 	//DDX_Text(pDX, IDC_EDIT2, m_result);
 	//DDX_Control(pDX, IDC_BURI3, Buricon);
+	DDX_Control(pDX, IDC_EDIT2, m_Edit);
 }
 BOOL FormChat::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT & rect, CWnd * pParentWnd, UINT nID, CCreateContext * pContext)
 {
@@ -275,10 +276,10 @@ void FormChat::OnBnClickedButton1()
 		}
 	}
 
-
-
-
-
+	UpdateData();
+	message.Empty();
+	UpdateData(false);
+	m_Edit.LineScroll(m_Edit.GetLineCount(), 0);
 
 }
 

@@ -48,9 +48,10 @@ BOOL FormEdu::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyl
 	return CFormView::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, nID, pContext);
 }
 
+
 //void FormEdu::OnInitialUpdate()
 //{
-//	CFormView::OnInitialUpdate();
+////	CFormView::OnInitialUpdate();
 //
 //	
 //}
@@ -78,6 +79,9 @@ void FormEdu::Dump(CDumpContext& dc) const
 void FormEdu::OnBnClickedButton1()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	GetDlgItem(IDC_BUTTON1)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_BUTTON2)->ShowWindow(SW_SHOW);
+	GetDlgItem(IDC_BUTTON3)->ShowWindow(SW_SHOW);
 	CClientDC dc(this);
 
 	int a = 0;
@@ -85,7 +89,7 @@ void FormEdu::OnBnClickedButton1()
 	a = rand() % 3;
 
 	image4.Load(_T("./res/여우.jpg"));
-	image4.BitBlt(dc.m_hDC, 255, 140, 200, 200, 200, 180, SRCCOPY);
+	image4.BitBlt(dc.m_hDC, 190, 120, 200, 200, 200, 180, SRCCOPY);
 	CButton* rr1 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
 	rr1->SetWindowTextW(_T("Fox"));
 	rr1->SetCheck(false);
@@ -121,18 +125,31 @@ void FormEdu::OnBnClickedButton2()
 	CString q1;
 	CString rq1;
 	if (count == 1 || count == 0 ) {
-		rq1 = L"fox";
+		rq1 = L"Fox";
 	}
 	if (count == 2) {
-		rq1 = L"Apple";;
+		rq1 = L"Apple";
 	}
 	if (count == 3) {
-		rq1 = L"fish";
+		rq1 = L"Fish";
+	}
+	if (count == 4) {
+		rq1 = L"I'm thirsty";
+	}
+	if (count == 5) {
+		rq1 = L"He's excited";
+	}
+	if (count == 6) {
+		rq1 = L"some toast for";
+	}
+	if (count == 7) {
+		rq1 = L"is he copying";
 	}
 
 	GetDlgItemText(IDC_EDIT1, q1);
 
 	if (q1 == rq1) {
+		MessageBox(_T("Good! 잘했어요!"), _T("집중~!"));
 		CClientDC dc(this);
 		result.Empty();
 		UpdateData(false);
@@ -144,7 +161,7 @@ void FormEdu::OnBnClickedButton2()
 			title->SetCheck(false);
 
 			image5.Load(_T("./res/사과.jpg"));
-			image5.BitBlt(dc.m_hDC, 255, 140, 200, 200, 200, 180, SRCCOPY);
+			image5.BitBlt(dc.m_hDC, 190, 120, 200, 200, 200, 180, SRCCOPY);
 
 			CButton* rr1 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
 			rr1->SetWindowTextW(_T("Apple"));
@@ -153,14 +170,81 @@ void FormEdu::OnBnClickedButton2()
 		if (count == 3) {
 			CButton* title = (CButton*)GetDlgItem(IDC_STATIC3);
 			title->SetWindowTextW(_T("생선은 영어로 Fish !"));
-			title->SetCheck(false);
 
 			image6.Load(_T("./res/생선.jpg"));
-			image6.BitBlt(dc.m_hDC, 255, 140, 200, 200, 0, 0, SRCCOPY);
+			image6.BitBlt(dc.m_hDC, 190, 120, 200, 200, 0, 0, SRCCOPY);
 
 			CButton* rr1 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
 			rr1->SetWindowTextW(_T("Fish"));
-			rr1->SetCheck(false);
+		}
+		if (count == 4) {
+			
+			InvalidateRect(CRect(0, 0, 500, 600), TRUE);
+			CButton* title = (CButton*)GetDlgItem(IDC_HTEXT);
+			title->SetWindowTextW(_T("다음 우리말을 영어로 적어 봅시다."));
+			CButton* word = (CButton*)GetDlgItem(IDC_STATIC_LONG);
+			word->SetWindowTextW(_T("'나는 목이 마릅니다.'"));
+			CButton* title2 = (CButton*)GetDlgItem(IDC_STATIC3);
+			title2->SetWindowTextW(_T(""));
+			CButton* title3 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
+			title3->SetWindowTextW(_T(""));
+			CButton* title4 = (CButton*)GetDlgItem(IDC_STATIC_TITLE);
+			title4->SetWindowTextW(_T("<중급 영어 문장 학습>"));
+			GetDlgItem(IDC_BUTTON3)->ShowWindow(SW_HIDE);
+
+		}if (count == 5) {
+			InvalidateRect(CRect(0, 0, 500, 600), TRUE);
+			CButton* title = (CButton*)GetDlgItem(IDC_HTEXT);
+			title->SetWindowTextW(_T("다음 우리말을 영어로 적어 봅시다."));
+			CButton* word = (CButton*)GetDlgItem(IDC_STATIC_LONG);
+			word->SetWindowTextW(_T("'그는 신났습니다.'"));
+			CButton* title2 = (CButton*)GetDlgItem(IDC_STATIC3);
+			title2->SetWindowTextW(_T(""));
+			CButton* title3 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
+			title3->SetWindowTextW(_T(""));
+			CButton* title4 = (CButton*)GetDlgItem(IDC_STATIC_TITLE);
+			title4->SetWindowTextW(_T("<중급 영어 문장 학습>"));
+			GetDlgItem(IDC_BUTTON3)->ShowWindow(SW_HIDE);
+		}if (count == 6) {
+			InvalidateRect(CRect(0, 0, 500, 600), TRUE);
+			CButton* title = (CButton*)GetDlgItem(IDC_HTEXT);
+			title->SetWindowTextW(_T("다음 빈칸에 알맞는 문장을 적어 봅시다."));
+			CButton* word = (CButton*)GetDlgItem(IDC_STATIC_LONG);
+			word->SetWindowTextW(_T("'나는 아침 식사로 약간의 토스트를 먹습니다.'"));
+			CButton* title2 = (CButton*)GetDlgItem(IDC_STATIC3);
+			title2->SetWindowTextW(_T(""));
+			CButton* title3 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
+			title3->SetWindowTextW(_T(""));
+			CButton* title4 = (CButton*)GetDlgItem(IDC_STATIC_TITLE);
+			title4->SetWindowTextW(_T("<고급 영어 문장 학습>"));
+			CButton* title5 = (CButton*)GetDlgItem(IDC_STATIC_HINT2);
+			title5->SetWindowTextW(_T("I have"));
+			CButton* title6 = (CButton*)GetDlgItem(IDC_STATIC_HINT);
+			title6->SetWindowTextW(_T("breakfast"));
+			GetDlgItem(IDC_BUTTON3)->ShowWindow(SW_HIDE);
+		}
+		if (count == 7) {
+			InvalidateRect(CRect(0, 0, 500, 600), TRUE);
+			CButton* title = (CButton*)GetDlgItem(IDC_HTEXT);
+			title->SetWindowTextW(_T("※다음 빈칸에 알맞는 문장을 적어 봅시다."));
+			CButton* word = (CButton*)GetDlgItem(IDC_STATIC_LONG);
+			word->SetWindowTextW(_T("'어디서 그는 보고서를 복사하고 있습니까?.'"));
+			CButton* title2 = (CButton*)GetDlgItem(IDC_STATIC3);
+			title2->SetWindowTextW(_T(""));
+			CButton* title3 = (CButton*)GetDlgItem(IDD_ABOUTBOX);
+			title3->SetWindowTextW(_T(""));
+			CButton* title4 = (CButton*)GetDlgItem(IDC_STATIC_TITLE);
+			title4->SetWindowTextW(_T("<고급 영어 문장 학습>"));
+			CButton* title5 = (CButton*)GetDlgItem(IDC_STATIC_HINT2);
+			title5->SetWindowTextW(_T("Where"));
+			CButton* title6 = (CButton*)GetDlgItem(IDC_STATIC_HINT);
+			title6->SetWindowTextW(_T("the report?"));
+		}
+		if (count == 8) {
+			MessageBox(_T("수고하셨습니다! 학습종료~!."), _T("학습끝~"));
+			//Invalidate();
+			//count = 0;
+			//RedrawWindow();
 		}
 	}
 	else {
@@ -188,5 +272,8 @@ void FormEdu::OnInitialUpdate()
 	m_btn_edu_listen.SizeToContent();
 	m_btn_edu_next.LoadBitmaps(IDB_MAIN_NEXT_ON, IDB_MAIN_NEXT, NULL, NULL);
 	m_btn_edu_next.SizeToContent();
+
+	GetDlgItem(IDC_BUTTON2)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_BUTTON3)->ShowWindow(SW_HIDE);
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 }

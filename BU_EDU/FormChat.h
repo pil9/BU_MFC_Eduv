@@ -66,6 +66,7 @@ public:
 	int m_verticalCent;*/
 	afx_msg void OnPaint();
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	CEdit m_Edit;
 };
 
 
