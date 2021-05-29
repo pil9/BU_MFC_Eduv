@@ -13,6 +13,7 @@
 #include "FormChat.h"
 #include "FormLogin.h"
 #include "FormRegister.h"
+#include "Formmain.h"
 
 #pragma once
 
@@ -47,6 +48,7 @@ public:
 	FormChat* p_Chat;
 	FormRegister* p_Register;
 	FormLogin* p_Login;
+	Formmain* p_Main;
 	
 	void AllocForms();
 	

@@ -216,7 +216,7 @@ void CBUEDUDlg::AllocForms()
 	p_audio = new FormAudio();
 	p_audio->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_AUDIO, &context);
 	p_audio->OnInitialUpdate();
-	p_audio->ShowWindow(SW_SHOW);
+	p_audio->ShowWindow(SW_HIDE);
 
 	/*CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
 	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
@@ -253,6 +253,11 @@ void CBUEDUDlg::AllocForms()
 	p_Login->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_LOGIN, &context);
 	p_Login->OnInitialUpdate();
 	p_Login->ShowWindow(SW_HIDE);
+
+	p_Main = new Formmain();
+	p_Main->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_LOGIN, &context);
+	p_Main->OnInitialUpdate();
+	p_Main->ShowWindow(SW_SHOW);
 	
 	/*
 	m_pForm3 = new CMyForm3();
