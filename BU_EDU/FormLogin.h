@@ -50,4 +50,4 @@ public:
 	CBitmapButton m_btn_reg;
 };
 extern bool login_check;
-
+extern CString user_id;

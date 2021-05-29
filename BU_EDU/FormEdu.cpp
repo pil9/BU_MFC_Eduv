@@ -228,7 +228,7 @@ void FormEdu::OnBnClickedButton2()
 			CButton* title = (CButton*)GetDlgItem(IDC_HTEXT);
 			title->SetWindowTextW(_T("※다음 빈칸에 알맞는 문장을 적어 봅시다."));
 			CButton* word = (CButton*)GetDlgItem(IDC_STATIC_LONG);
-			word->SetWindowTextW(_T("'어디서 그는 보고서를 복사하고 있습니까?.'"));
+			word->SetWindowTextW(_T("'어디서 그는 보고서를 복사하고 있습니까?'"));
 			CButton* title2 = (CButton*)GetDlgItem(IDC_STATIC3);
 			title2->SetWindowTextW(_T(""));
 			CButton* title3 = (CButton*)GetDlgItem(IDD_ABOUTBOX);

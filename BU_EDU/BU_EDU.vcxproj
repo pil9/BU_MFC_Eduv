@@ -249,8 +249,10 @@
     <Image Include="res\main_btn1.bmp" />
     <Image Include="res\main_btn2.bmp" />
     <Image Include="res\main_btn_1.bmp" />
+    <Image Include="res\main_btn_change.bmp" />
     <Image Include="res\main_btn_check.bmp" />
     <Image Include="res\main_btn_check_on.bmp" />
+    <Image Include="res\main_btn_edit.bmp" />
     <Image Include="res\main_btn_edu.bmp" />
     <Image Include="res\main_btn_edu_on.bmp" />
     <Image Include="res\main_btn_level.bmp" />

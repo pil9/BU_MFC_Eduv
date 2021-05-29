@@ -41,6 +41,7 @@ public:
 	CBitmapButton m_record;
 	CBitmapButton m_stop;
 	CBitmapButton m_play;
+	afx_msg void OnBnClickedBtnPlay();
 };
 
 

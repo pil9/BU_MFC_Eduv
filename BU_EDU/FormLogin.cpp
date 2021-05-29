@@ -11,6 +11,7 @@
 
 IMPLEMENT_DYNCREATE(FormLogin, CFormView)
 bool login_check = false;
+CString user_id = _T("");
 FormLogin::FormLogin()
 	: CFormView(IDD_FORM_LOGIN)
 	, m_Username(_T(""))
@@ -145,9 +146,11 @@ void FormLogin::OnBnClickedBtnLogin()
 			char* Passwd = row[1];
 			if ((m_Username == Name) && (m_Password == Passwd))
 			{
-				((CBUEDUDlg *)GetParent())->ShowForm(6);
-				MessageBox(_T("마이페이지 연동해야함"));
 				login_check = true;
+				user_id = m_Username;
+				((CBUEDUDlg *)GetParent())->ShowForm(1);
+				//MessageBox(user_id);
+				
 				break;
 				//loginUserName = Name;
 				/*CWelcomeDlg goToMenu;

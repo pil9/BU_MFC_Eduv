@@ -121,6 +121,7 @@ BEGIN_MESSAGE_MAP(FormAudio, CFormView)
 	ON_WM_CTLCOLOR()
 	ON_BN_CLICKED(IDC_BUTTON4, &FormAudio::OnBnClickedButton4)
 	ON_NOTIFY(NM_CLICK, IDC_LIST1, &FormAudio::OnNMClickList1)
+	ON_BN_CLICKED(IDC_BTN_PLAY, &FormAudio::OnBnClickedBtnPlay)
 END_MESSAGE_MAP()
 
 
@@ -160,11 +161,7 @@ HBRUSH FormAudio::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 
 void FormAudio::OnBnClickedButton4()
 {
-	CString sIndexValue;
-	sIndexValue = m_audio_list.GetItemText(idx_row,idx_col);
-	CString sound_data = _T("./res/audio/") + sIndexValue + ".wav";
-	//sound_data += fileName;
-	PlaySound(sound_data, AfxGetInstanceHandle(), SND_ASYNC);
+	
 	//MessageBox(_T("Test"));
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
@@ -181,4 +178,15 @@ void FormAudio::OnNMClickList1(NMHDR *pNMHDR, LRESULT *pResult)
 	MessageBox((CString)));*/
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	*pResult = 0;
+}
+
+
+void FormAudio::OnBnClickedBtnPlay()
+{
+	CString sIndexValue;
+	sIndexValue = m_audio_list.GetItemText(idx_row, idx_col);
+	CString sound_data = _T("./res/audio/") + sIndexValue + ".wav";
+	//sound_data += fileName;
+	PlaySound(sound_data, AfxGetInstanceHandle(), SND_ASYNC);
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }

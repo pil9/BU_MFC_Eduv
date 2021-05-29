@@ -221,8 +221,8 @@ void CBUEDUDlg::AllocForms()
 
 	p_Mypage = new FormMypage();
 	p_Mypage->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_MYPAGE, &context);
-	p_Mypage->OnInitialUpdate();
-	p_Mypage->ShowWindow(SW_HIDE);
+	/*p_Mypage->OnInitialUpdate();
+	p_Mypage->ShowWindow(SW_HIDE);*/
 	/*CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
 	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
 		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);*/
@@ -300,11 +300,12 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Chat->ShowWindow(SW_HIDE);
 		p_Login->ShowWindow(SW_HIDE);
 		p_Register->ShowWindow(SW_HIDE);
+		p_Mypage->OnInitialUpdate();
 		p_Mypage->ShowWindow(SW_SHOW);
 		p_Main->ShowWindow(SW_HIDE);
 		break;
 		
-	case 2://레벨테스트 페이지로 이동으로 사용하겠슴
+	case 2://레벨테스트
 		p_audio->ShowWindow(SW_HIDE);
 		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_SHOW);
@@ -319,7 +320,7 @@ void CBUEDUDlg::ShowForm(int idx)
 		onOkbtn->RedrawWindow();
 		break;
 
-	case 3://레벨테스트 페이지로 이동으로 사용하겠슴
+	case 3://초급교육
 		p_audio->ShowWindow(SW_HIDE);
 		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_HIDE);
@@ -406,7 +407,7 @@ void CBUEDUDlg::OnBnClickedButton2()
 {
 	if (login_check == true) {
 		MessageBox(_T("로그인 되어있음 마이페이지 연동 필요"));
-		//ShowForm(4);
+		ShowForm(1);
 	}
 	else {
 		ShowForm(5);

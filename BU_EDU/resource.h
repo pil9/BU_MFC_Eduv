@@ -58,6 +58,8 @@
 #define IDB_MAIN_STOP                   183
 #define IDB_MAIN_PLAY_ON                184
 #define IDD_FORM_MYPAGE                 185
+#define IDB_MAIN_CHANGE                 187
+#define IDB_MAIN_EDIT                   188
 #define IDC_BUTTON1                     1000
 #define IDC_BUTTON2                     1001
 #define IDC_LIST1                       1001
@@ -108,7 +110,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        187
+#define _APS_NEXT_RESOURCE_VALUE        189
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1028
 #define _APS_NEXT_SYMED_VALUE           101

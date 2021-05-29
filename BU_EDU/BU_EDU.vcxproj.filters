@@ -257,5 +257,11 @@
     <Image Include="res\main_btn_play_on.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\main_btn_change.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_edit.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

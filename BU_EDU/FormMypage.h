@@ -32,6 +32,14 @@ public:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	virtual BOOL Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext = NULL);
 	virtual void OnInitialUpdate();
+	CBitmapButton m_edit;
+	CString m_name;
+	CString m_email;
+	CString m_birth;
+	CString m_address;
+	CString m_level;
+
+	CBitmapButton m_change;
 };
 
 
