@@ -5,7 +5,7 @@
 #include "resource.h"
 #include "FormEdu.h"
 
-#pragma comment(lib, "winmm");
+#pragma comment(lib, "winmm")
 #include <mmsystem.h>
 
 
@@ -27,6 +27,9 @@ void FormEdu::DoDataExchange(CDataExchange* pDX)
 {
 	CFormView::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT1, result);
+	DDX_Control(pDX, IDC_BUTTON1, m_btn_edu_start);
+	DDX_Control(pDX, IDC_BUTTON2, m_btn_edu_next);
+	DDX_Control(pDX, IDC_BUTTON3, m_btn_edu_listen);
 }
 
 BEGIN_MESSAGE_MAP(FormEdu, CFormView)
@@ -45,10 +48,12 @@ BOOL FormEdu::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyl
 	return CFormView::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, nID, pContext);
 }
 
-void FormEdu::OnInitialUpdate()
-{
-
-}
+//void FormEdu::OnInitialUpdate()
+//{
+//	CFormView::OnInitialUpdate();
+//
+//	
+//}
 
 // FormEdu 진단
 
@@ -169,5 +174,19 @@ void FormEdu::OnBnClickedButton2()
 HBRUSH FormEdu::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CreateSolidBrush(RGB(246, 238, 225));
+	pDC->SetBkColor(RGB(246, 238, 225));
 	return hbr;
+}
+
+
+void FormEdu::OnInitialUpdate()
+{
+	CFormView::OnInitialUpdate();
+	m_btn_edu_start.LoadBitmaps(IDB_MAIN_EDU_ON, IDB_MAIN_EDU, NULL, NULL);
+	m_btn_edu_start.SizeToContent();
+	m_btn_edu_listen.LoadBitmaps(IDB_MAIN_LISTEN_ON, IDB_MAIN_LISTEN, NULL, NULL);
+	m_btn_edu_listen.SizeToContent();
+	m_btn_edu_next.LoadBitmaps(IDB_MAIN_NEXT_ON, IDB_MAIN_NEXT, NULL, NULL);
+	m_btn_edu_next.SizeToContent();
+	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 }

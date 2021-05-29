@@ -48,6 +48,12 @@
     <ClInclude Include="FormChat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FormLogin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FormRegister.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BU_EDU.cpp">
@@ -72,6 +78,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FormChat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormLogin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormRegister.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,13 +176,52 @@
     <Image Include="res\sub_btn7_on.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\bitmap1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="res\buri.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\bitmap4.bmp">
+    <Image Include="res\main_btn_login.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_login_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_check.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_check_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_edu.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_edu_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_level.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_level_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_next.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_next_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_reg.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_reg_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_listen.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_listen_on.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\submit_btn.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

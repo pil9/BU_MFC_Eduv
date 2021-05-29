@@ -2,26 +2,19 @@
 
 
 
-// FormLevel 폼 보기
+// FormRegister 폼 보기
 
-class FormLevel : public CFormView
+class FormRegister : public CFormView
 {
-	DECLARE_DYNCREATE(FormLevel)
-
-protected:
-	           // 동적 만들기에 사용되는 protected 생성자입니다.
-	virtual ~FormLevel();
+	DECLARE_DYNCREATE(FormRegister)
 
 public:
-	FormLevel();
+	FormRegister();           // 동적 만들기에 사용되는 protected 생성자입니다.
+	virtual ~FormRegister();
 
-	CImage image1, image2, image3;
-	int b_state = 0, Timer = 60;
-	CString rq1;
-	int wran;
-
+public:
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_FORM_LEVEL };
+	enum { IDD = IDD_FORM_REG };
 #endif
 #ifdef _DEBUG
 	virtual void AssertValid() const;
@@ -32,19 +25,25 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
-
+	CFont newFont;
 	DECLARE_MESSAGE_MAP()
-
 public:
+	CString u_fname;
+	CString u_email;
+	CString u_gender;
+	CString u_bday;
+	CString u_address;
+	CString u_uname;
+	CString u_password;
+	CString u_confirm;
 	virtual BOOL Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext = NULL);
 	virtual void OnInitialUpdate();
-
-	CBitmapButton m_btn_test_start;
-	CBitmapButton m_btn_test_next;
-	afx_msg void OnBnClickedButton1();
-	afx_msg void OnBnClickedButton2();
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnBnClickedOk();
+	int mRadio;
+	
+	afx_msg void OnEnChangeEdit7();
 };
+extern CString test_name;
 
 

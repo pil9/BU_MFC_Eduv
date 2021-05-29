@@ -55,6 +55,17 @@ public:
 	CString message;
 	CString result;
 	CStatic Buricon;
+	CRect m_image_rect;
+	CImage m_image;
+	CEdit m_result;
+	CBitmapButton m_submit;
+	/*CString m_strBGImgPath;
+	CImage	m_BGImg;*/
+	/*int m_resizeX;
+	int m_resizeY;
+	int m_verticalCent;*/
+	afx_msg void OnPaint();
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 };
 
 

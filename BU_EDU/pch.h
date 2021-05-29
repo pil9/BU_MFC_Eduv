@@ -10,7 +10,7 @@
 // add headers that you want to pre-compile here
 #include "framework.h"
 #include <afxext.h>
-#include <afxext.h>
-#include <afxext.h>
+#include <winsock2.h>
+#include "mysql.h"
 
 #endif //PCH_H

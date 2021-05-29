@@ -197,7 +197,9 @@ void CBUEDUDlg::OnPaint()
 	image.LoadBitmap(IDB_MAIN_LOGO);
 	bitmaptemp->SetBitmap(image);
 	
-	
+	CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
+	onOkbtn->ShowWindow(SW_SHOW);
+	onOkbtn->RedrawWindow();
 
 }
 
@@ -242,6 +244,16 @@ void CBUEDUDlg::AllocForms()
 	p_Chat->OnInitialUpdate();
 	p_Chat->ShowWindow(SW_HIDE);
 
+	p_Register = new FormRegister();
+	p_Register->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_REG, &context);
+	p_Register->OnInitialUpdate();
+	p_Register->ShowWindow(SW_HIDE);
+
+	p_Login = new FormLogin();
+	p_Login->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_LOGIN, &context);
+	p_Login->OnInitialUpdate();
+	p_Login->ShowWindow(SW_HIDE);
+	
 	/*
 	m_pForm3 = new CMyForm3();
 	m_pForm3->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_FORM3, &context);
@@ -253,6 +265,7 @@ void CBUEDUDlg::AllocForms()
 
 void CBUEDUDlg::ShowForm(int idx)
 {
+	CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
 	switch (idx)
 	{
 	case 0:
@@ -261,6 +274,11 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Level->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_HIDE);
 		p_Chat->ShowWindow(SW_HIDE);
+		p_Login->ShowWindow(SW_HIDE);
+		p_Register->ShowWindow(SW_HIDE);
+		Invalidate();
+		onOkbtn->ShowWindow(SW_SHOW);
+		onOkbtn->RedrawWindow();
 		
 		break;
 	case 1:
@@ -269,6 +287,9 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Level->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_HIDE);
 		p_Chat->ShowWindow(SW_HIDE);
+		p_Login->ShowWindow(SW_HIDE);
+		p_Register->ShowWindow(SW_HIDE);
+		
 		break;
 		
 	case 2://레벨테스트 페이지로 이동으로 사용하겠슴
@@ -277,6 +298,10 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Level->ShowWindow(SW_SHOW);
 		p_Edu->ShowWindow(SW_HIDE);
 		p_Chat->ShowWindow(SW_HIDE);
+		p_Login->ShowWindow(SW_HIDE);
+		p_Register->ShowWindow(SW_HIDE);
+		onOkbtn->ShowWindow(SW_SHOW);
+		onOkbtn->RedrawWindow();
 		break;
 
 	case 3://레벨테스트 페이지로 이동으로 사용하겠슴
@@ -285,6 +310,8 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Level->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_SHOW);
 		p_Chat->ShowWindow(SW_HIDE);
+		p_Login->ShowWindow(SW_HIDE);
+		p_Register->ShowWindow(SW_HIDE);
 		break;
 
 	case 4:
@@ -293,6 +320,28 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Level->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_HIDE);
 		p_Chat->ShowWindow(SW_SHOW);
+		p_Login->ShowWindow(SW_HIDE);
+		p_Register->ShowWindow(SW_HIDE);
+		break;
+
+	case 5: //login
+		p_audio->ShowWindow(SW_HIDE);
+		p_test->ShowWindow(SW_HIDE);
+		p_Level->ShowWindow(SW_HIDE);
+		p_Edu->ShowWindow(SW_HIDE);
+		p_Chat->ShowWindow(SW_HIDE);
+		p_Login->ShowWindow(SW_SHOW);
+		p_Register->ShowWindow(SW_HIDE);
+		break;
+
+	case 6: // register
+		p_audio->ShowWindow(SW_HIDE);
+		p_test->ShowWindow(SW_HIDE);
+		p_Level->ShowWindow(SW_HIDE);
+		p_Edu->ShowWindow(SW_HIDE);
+		p_Chat->ShowWindow(SW_HIDE);
+		p_Login->ShowWindow(SW_HIDE);
+		p_Register->ShowWindow(SW_SHOW);
 		break;
 	}
 
@@ -310,9 +359,9 @@ HCURSOR CBUEDUDlg::OnQueryDragIcon()
 void CBUEDUDlg::OnBnClickedButton1()
 {
 	
-	CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
-	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
-		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
+	
+	/*::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
+		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);*/
 
 	// TODO: Add your control notification handler code here
 }
@@ -320,17 +369,18 @@ void CBUEDUDlg::OnBnClickedButton1()
 
 void CBUEDUDlg::OnBnClickedButton2()
 {
-	ShowForm(1);
+	ShowForm(5);
+	/*
 	CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
 	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
-		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
+		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);*/
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
 
 
 void CBUEDUDlg::OnBnClickedButton3()
 {
-	
+	ShowForm(6);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
 

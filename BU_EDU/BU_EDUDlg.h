@@ -11,6 +11,9 @@
 #include "FormLevel.h"
 #include "FormEdu.h"
 #include "FormChat.h"
+#include "FormLogin.h"
+#include "FormRegister.h"
+
 #pragma once
 
 typedef struct BufferNode
@@ -42,8 +45,11 @@ public:
 	FormLevel* p_Level;
 	FormEdu* p_Edu;
 	FormChat* p_Chat;
+	FormRegister* p_Register;
+	FormLogin* p_Login;
+	
 	void AllocForms();
-	void ShowForm(int idx);
+	
 
 // Implementation
 protected:
@@ -56,6 +62,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
+	void ShowForm(int idx);
 	HBITMAP m_hBitmap;
 	BITMAP m_bitmap;
 	afx_msg void OnBnClickedButton1();

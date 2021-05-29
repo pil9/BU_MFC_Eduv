@@ -23,6 +23,8 @@ FormLevel::~FormLevel()
 void FormLevel::DoDataExchange(CDataExchange* pDX)
 {
 	CFormView::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_BUTTON1, m_btn_test_start);
+	DDX_Control(pDX, IDC_BUTTON2, m_btn_test_next);
 }
 
 BEGIN_MESSAGE_MAP(FormLevel, CFormView)
@@ -40,7 +42,11 @@ BOOL FormLevel::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwSt
 
 void FormLevel::OnInitialUpdate()
 {
-
+	CFormView::OnInitialUpdate();
+	m_btn_test_start.LoadBitmaps(IDB_MAIN_LEVEL_ON, IDB_MAIN_LEVEL, NULL, NULL);
+	m_btn_test_start.SizeToContent();
+	m_btn_test_next.LoadBitmaps(IDB_MAIN_NEXT_ON, IDB_MAIN_NEXT, NULL, NULL);
+	m_btn_test_next.SizeToContent();
 }
 // FormLevel 진단
 
@@ -183,5 +189,6 @@ void FormLevel::OnTimer(UINT_PTR nIDEvent)
 HBRUSH FormLevel::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CreateSolidBrush(RGB(246, 238, 225));
+	pDC->SetBkColor(RGB(246, 238, 225));
 	return hbr;
 }

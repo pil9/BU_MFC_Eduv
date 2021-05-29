@@ -23,7 +23,7 @@
     <ProjectGuid>{3D3BB5D9-51E2-4726-A17F-D2856E462913}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
     <RootNamespace>BUEDU</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -44,7 +44,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
@@ -79,6 +79,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files\MySQL\MySQL Server 8.0\lib;C:\Program Files\MySQL\Connector C++ 8.0\include;$(IncludePath)</IncludePath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -117,9 +120,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 8.0\include;C:\Program Files\MySQL\Connector C++ 8.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Server 8.0\lib;C:\Program Files\MySQL\Connector C++ 8.0\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -196,6 +202,8 @@
     <ClInclude Include="FormChat.h" />
     <ClInclude Include="FormEdu.h" />
     <ClInclude Include="FormLevel.h" />
+    <ClInclude Include="FormLogin.h" />
+    <ClInclude Include="FormRegister.h" />
     <ClInclude Include="Formtest.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
@@ -209,6 +217,8 @@
     <ClCompile Include="FormChat.cpp" />
     <ClCompile Include="FormEdu.cpp" />
     <ClCompile Include="FormLevel.cpp" />
+    <ClCompile Include="FormLogin.cpp" />
+    <ClCompile Include="FormRegister.cpp" />
     <ClCompile Include="Formtest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -230,14 +240,27 @@
     <Image Include="..\..\Users\ljp33\Desktop\main_btn_1.png" />
     <Image Include="..\..\Users\ljp33\Desktop\sub_btn_1.bmp" />
     <Image Include="res\background.bmp" />
-    <Image Include="res\bitmap1.bmp" />
-    <Image Include="res\bitmap4.bmp" />
     <Image Include="res\buri.bmp" />
     <Image Include="res\BU_EDU.ico" />
     <Image Include="res\main_btn1.bmp" />
     <Image Include="res\main_btn2.bmp" />
     <Image Include="res\main_btn_1.bmp" />
+    <Image Include="res\main_btn_check.bmp" />
+    <Image Include="res\main_btn_check_on.bmp" />
+    <Image Include="res\main_btn_edu.bmp" />
+    <Image Include="res\main_btn_edu_on.bmp" />
+    <Image Include="res\main_btn_level.bmp" />
+    <Image Include="res\main_btn_level_on.bmp" />
+    <Image Include="res\main_btn_listen.bmp" />
+    <Image Include="res\main_btn_listen_on.bmp" />
+    <Image Include="res\main_btn_login.bmp" />
+    <Image Include="res\main_btn_login_on.bmp" />
+    <Image Include="res\main_btn_next.bmp" />
+    <Image Include="res\main_btn_next_on.bmp" />
+    <Image Include="res\main_btn_reg.bmp" />
+    <Image Include="res\main_btn_reg_on.bmp" />
     <Image Include="res\main_logo.bmp" />
+    <Image Include="res\submit_btn.bmp" />
     <Image Include="res\sub_btn1.bmp" />
     <Image Include="res\sub_btn1_on.bmp" />
     <Image Include="res\sub_btn2.bmp" />

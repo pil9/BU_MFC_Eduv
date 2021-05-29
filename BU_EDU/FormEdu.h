@@ -34,13 +34,17 @@ protected:
 
 public:
 	virtual BOOL Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext = NULL);
-	virtual void OnInitialUpdate();
+//	virtual void OnInitialUpdate();
 
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton3();
 	afx_msg void OnBnClickedButton2();
 	CString result;
+	CBitmapButton m_btn_edu_start;
+	CBitmapButton m_btn_edu_listen;
+	CBitmapButton m_btn_edu_next;
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	virtual void OnInitialUpdate();
 };
 
 

@@ -27,7 +27,9 @@ void FormChat::DoDataExchange(CDataExchange* pDX)
 	CFormView::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT1, message);
 	DDX_Text(pDX, IDC_EDIT2, result);
-	DDX_Control(pDX, IDC_BURI3, Buricon);
+	DDX_Control(pDX, IDC_BUTTON1, m_submit);
+	//DDX_Text(pDX, IDC_EDIT2, m_result);
+	//DDX_Control(pDX, IDC_BURI3, Buricon);
 }
 BOOL FormChat::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT & rect, CWnd * pParentWnd, UINT nID, CCreateContext * pContext)
 {
@@ -37,22 +39,33 @@ BOOL FormChat::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwSty
 }
 void FormChat::OnInitialUpdate()
 {
+	CFormView::OnInitialUpdate();
+	m_submit.LoadBitmaps(IDB_MAIN_SUBMIT, IDB_MAIN_SUBMIT, NULL, NULL);
+	m_submit.SizeToContent();
+
+	GetDlgItem(IDC_PICTURE_BURI)->GetWindowRect(m_image_rect);
+	ScreenToClient(m_image_rect);
+	if (m_image.IsNull()) {
+		m_image.Load(L".\\res\\buri.bmp");
+		InvalidateRect(m_image_rect, FALSE);
+	}
 
 	//m_hBitmap = LoadBitmap(AfxGetApp()->m_hInstance, MAKEINTRESOURCE(IDB_BG));
 	//GetObject(m_hBitmap, sizeof(BITMAP), &m_bitmap);
 	//CClientDC dc(this);
 	//image1.Load(_T("./res/여우.jpg"));
 	//image1.BitBlt(dc.m_hDC, 255, 140, 200, 200, 200, 180, SRCCOPY);
-	CRect rect;//픽쳐 컨트롤의 크기를 저장할 CRect 객체
-	Buricon.GetWindowRect(rect);//GetWindowRect를 사용해서 픽쳐 컨트롤의 크기를 받는다.
-	CDC* dc; //픽쳐 컨트롤의 DC를 가져올  CDC 포인터
-	dc = Buricon.GetDC(); //픽쳐 컨트롤의 DC를 얻는다.
-	//CDC* dc = Buricon.GetWindowDC();
-	CImage image;//불러오고 싶은 이미지를 로드할 CImage 
-	image.Load(_T("./res/buri.bmp"));//이미지 로드
 
-	image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);//이미지를 픽쳐 컨트롤 크기로 조정
-	ReleaseDC(dc);//DC 해제
+	//CRect rect;//픽쳐 컨트롤의 크기를 저장할 CRect 객체
+	//Buricon.GetWindowRect(rect);//GetWindowRect를 사용해서 픽쳐 컨트롤의 크기를 받는다.
+	//CDC* dc; //픽쳐 컨트롤의 DC를 가져올  CDC 포인터
+	//dc = Buricon.GetDC(); //픽쳐 컨트롤의 DC를 얻는다.
+	////CDC* dc = Buricon.GetWindowDC();
+	//CImage image;//불러오고 싶은 이미지를 로드할 CImage 
+	//image.Load(_T("./res/buri.bmp"));//이미지 로드
+
+	//image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);//이미지를 픽쳐 컨트롤 크기로 조정
+	//ReleaseDC(dc);//DC 해제
 
 	for (int i = 0; i < m_arrDictionary.GetSize(); ++i)
 	{
@@ -120,7 +133,7 @@ void FormChat::OnInitialUpdate()
 
 
 
-	SetDlgItemText(IDC_EDIT2, _T("=============단어쟁이 챗봇 =============\r\n안녕하세요! 저는 뷰리입니다~\r\n수업 중 모르는 단어가 있다면 저에게 물어봐주세요~\r\n인터넷을 이용할 경우 수업집중도가 저하될 수가 있어요ㅜㅜ \r\n==================================\r\n"));
+	SetDlgItemText(IDC_EDIT2, _T("============= 단어쟁이 챗봇 =============\r\n안녕하세요! 저는 뷰리입니다~\r\n공부 중 모르는 단어가 있다면 저에게 물어봐주세요~\r\n인터넷을 이용할 경우 집중도가 저하될 수가 있어요ㅜㅜ \r\n=====================================\r\n"));
 
 
 
@@ -132,6 +145,8 @@ BEGIN_MESSAGE_MAP(FormChat, CFormView)
 	ON_WM_CTLCOLOR()
 	ON_EN_CHANGE(IDC_EDIT2, &FormChat::OnEnChangeEdit2)
 	ON_BN_CLICKED(IDC_BUTTON1, &FormChat::OnBnClickedButton1)
+	ON_WM_PAINT()
+	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 
@@ -158,6 +173,7 @@ void FormChat::Dump(CDumpContext& dc) const
 HBRUSH FormChat::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CreateSolidBrush(RGB(246, 238, 225));
+	pDC->SetBkColor(RGB(246, 238, 225));
 	return hbr;
 }
 
@@ -178,7 +194,7 @@ void FormChat::OnBnClickedButton1()
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 
 	UpdateData();
-
+	
 	result.Append(_T("[me] "));
 	result.Append(message);
 
@@ -230,11 +246,11 @@ void FormChat::OnBnClickedButton1()
 		if (count < 2)
 		{
 			UpdateData();
-			result.Append(_T("[chatboot] "));
+			result.Append(_T("[뷰리] "));
 			result.Append(_T("질문한 단어의 의미는 \""));
 			result.Append(Word);
 			result.Append(_T("\""));
-			result.Append(_T("(이)에요"));
+			result.Append(_T("(이)예요"));
 			result.Append(_T("\r\n"));
 			result.Append(_T(" "));
 			result.Append(_T("\r\n"));
@@ -249,7 +265,7 @@ void FormChat::OnBnClickedButton1()
 		if (count < 2)
 		{
 			UpdateData();
-			result.Append(_T("[chatboot] "));
+			result.Append(_T("[뷰리] "));
 
 			result.Append(_T("단어를 이해하지 못했어요 ^^\r\n"));
 			result.Append(_T(" "));
@@ -264,4 +280,31 @@ void FormChat::OnBnClickedButton1()
 
 
 
+}
+
+
+void FormChat::OnPaint()
+{
+	CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
+	
+	
+	if (!m_image.IsNull()) { // 그림이 로딩되었는지 체크한다.
+		// 이미지가 원본 크기와 다르게 출력될때 어떤 방식으로 이미지를
+		// 확대하거나 축소할 것인지를 결정한다.
+		dc.SetStretchBltMode(COLORONCOLOR);
+		// 그림을 Picture Control 크기로 화면에 출력한다.
+		m_image.Draw(dc, m_image_rect);
+	}
+	
+}
+
+
+int FormChat::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CFormView::OnCreate(lpCreateStruct) == -1)
+		return -1;
+	//m_strBGImgPath = ".\\res\\buri.bmp";
+	// TODO:  여기에 특수화된 작성 코드를 추가합니다.
+
+	return 0;
 }
