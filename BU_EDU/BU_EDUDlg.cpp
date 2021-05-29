@@ -97,6 +97,7 @@ BEGIN_MESSAGE_MAP(CBUEDUDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON6, &CBUEDUDlg::OnBnClickedButton6)
 	ON_BN_CLICKED(IDC_BUTTON8, &CBUEDUDlg::OnBnClickedButton8)
 	ON_BN_CLICKED(IDC_BUTTON10, &CBUEDUDlg::OnBnClickedButton10)
+	ON_STN_CLICKED(IDC_STATIC_LOGO, &CBUEDUDlg::OnStnClickedStaticLogo)
 END_MESSAGE_MAP()
 
 
@@ -218,6 +219,10 @@ void CBUEDUDlg::AllocForms()
 	p_audio->OnInitialUpdate();
 	p_audio->ShowWindow(SW_HIDE);
 
+	p_Mypage = new FormMypage();
+	p_Mypage->Create(NULL, NULL, WS_CHILD | WS_VSCROLL | WS_HSCROLL, rectOfPanelArea, this, IDD_FORM_MYPAGE, &context);
+	p_Mypage->OnInitialUpdate();
+	p_Mypage->ShowWindow(SW_HIDE);
 	/*CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
 	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
 		SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);*/
@@ -281,20 +286,22 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Chat->ShowWindow(SW_HIDE);
 		p_Login->ShowWindow(SW_HIDE);
 		p_Register->ShowWindow(SW_HIDE);
-		Invalidate();
+		p_Main->ShowWindow(SW_HIDE);
+		p_Mypage->ShowWindow(SW_HIDE);
 		onOkbtn->ShowWindow(SW_SHOW);
 		onOkbtn->RedrawWindow();
 		
 		break;
 	case 1:
 		p_audio->ShowWindow(SW_HIDE);
-		p_test->ShowWindow(SW_SHOW);
+		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_HIDE);
 		p_Chat->ShowWindow(SW_HIDE);
 		p_Login->ShowWindow(SW_HIDE);
 		p_Register->ShowWindow(SW_HIDE);
-		
+		p_Mypage->ShowWindow(SW_SHOW);
+		p_Main->ShowWindow(SW_HIDE);
 		break;
 		
 	case 2://레벨테스트 페이지로 이동으로 사용하겠슴
@@ -305,7 +312,10 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Chat->ShowWindow(SW_HIDE);
 		p_Login->ShowWindow(SW_HIDE);
 		p_Register->ShowWindow(SW_HIDE);
+		p_Main->ShowWindow(SW_HIDE);
+		p_Mypage->ShowWindow(SW_HIDE);
 		onOkbtn->ShowWindow(SW_SHOW);
+
 		onOkbtn->RedrawWindow();
 		break;
 
@@ -317,6 +327,8 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Chat->ShowWindow(SW_HIDE);
 		p_Login->ShowWindow(SW_HIDE);
 		p_Register->ShowWindow(SW_HIDE);
+		p_Mypage->ShowWindow(SW_HIDE);
+		p_Main->ShowWindow(SW_HIDE);
 		break;
 
 	case 4:
@@ -327,6 +339,8 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Chat->ShowWindow(SW_SHOW);
 		p_Login->ShowWindow(SW_HIDE);
 		p_Register->ShowWindow(SW_HIDE);
+		p_Mypage->ShowWindow(SW_HIDE);
+		p_Main->ShowWindow(SW_HIDE);
 		break;
 
 	case 5: //login
@@ -337,16 +351,32 @@ void CBUEDUDlg::ShowForm(int idx)
 		p_Chat->ShowWindow(SW_HIDE);
 		p_Login->ShowWindow(SW_SHOW);
 		p_Register->ShowWindow(SW_HIDE);
+		p_Mypage->ShowWindow(SW_HIDE);
+		p_Main->ShowWindow(SW_HIDE);
 		break;
 
 	case 6: // register
 		p_audio->ShowWindow(SW_HIDE);
 		p_test->ShowWindow(SW_HIDE);
 		p_Level->ShowWindow(SW_HIDE);
+		p_Mypage->ShowWindow(SW_HIDE);
 		p_Edu->ShowWindow(SW_HIDE);
 		p_Chat->ShowWindow(SW_HIDE);
 		p_Login->ShowWindow(SW_HIDE);
 		p_Register->ShowWindow(SW_SHOW);
+		p_Main->ShowWindow(SW_HIDE);
+		break;
+
+	case 7: // home
+		p_audio->ShowWindow(SW_HIDE);
+		p_test->ShowWindow(SW_HIDE);
+		p_Level->ShowWindow(SW_HIDE);
+		p_Mypage->ShowWindow(SW_HIDE);
+		p_Edu->ShowWindow(SW_HIDE);
+		p_Chat->ShowWindow(SW_HIDE);
+		p_Login->ShowWindow(SW_HIDE);
+		p_Register->ShowWindow(SW_HIDE);
+		p_Main->ShowWindow(SW_SHOW);
 		break;
 	}
 
@@ -374,7 +404,14 @@ void CBUEDUDlg::OnBnClickedButton1()
 
 void CBUEDUDlg::OnBnClickedButton2()
 {
-	ShowForm(5);
+	if (login_check == true) {
+		MessageBox(_T("로그인 되어있음 마이페이지 연동 필요"));
+		//ShowForm(4);
+	}
+	else {
+		ShowForm(5);
+	}
+	
 	/*
 	CButton* onOkbtn = (CButton*)GetDlgItem(IDC_BUTTON7);
 	::SetWindowPos(onOkbtn->m_hWnd, HWND_TOPMOST, 0, 0, 0, 0,
@@ -392,6 +429,7 @@ void CBUEDUDlg::OnBnClickedButton3()
 
 void CBUEDUDlg::OnBnClickedButton4()
 {
+	ShowForm(1);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
 
@@ -451,5 +489,13 @@ void CBUEDUDlg::OnBnClickedButton8()
 void CBUEDUDlg::OnBnClickedButton10()
 {
 	ShowForm(0);
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CBUEDUDlg::OnStnClickedStaticLogo()
+{
+	//MessageBox(_T("Aa"));
+	ShowForm(7);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }

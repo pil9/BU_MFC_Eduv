@@ -35,6 +35,12 @@ public:
 	BITMAP m_bitmap;
 	afx_msg void OnBnClickedButton3();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	CListCtrl m_audio_list;
+	afx_msg void OnBnClickedButton4();
+	afx_msg void OnNMClickList1(NMHDR *pNMHDR, LRESULT *pResult);
+	CBitmapButton m_record;
+	CBitmapButton m_stop;
+	CBitmapButton m_play;
 };
 
 

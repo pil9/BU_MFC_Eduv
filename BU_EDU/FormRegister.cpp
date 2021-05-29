@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "BU_EDU.h"
 #include "FormRegister.h"
+#include "BU_EDUDlg.h"
 
 CString test_name;
 // FormRegister
@@ -34,6 +35,7 @@ void FormRegister::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT8, u_email);
 	//DDX_Text(pDX, IDC_EDIT9, u);
 	DDX_Radio(pDX, IDC_RADIO1, mRadio);
+	DDX_Control(pDX, ID_OK, m_btn_submit);
 }
 BOOL FormRegister::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT & rect, CWnd * pParentWnd, UINT nID, CCreateContext * pContext)
 {
@@ -43,7 +45,9 @@ BOOL FormRegister::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD d
 
 void FormRegister::OnInitialUpdate()
 {
-	
+	CFormView::OnInitialUpdate();
+	m_btn_submit.LoadBitmaps(IDB_MAIN_REG_ON, IDB_MAIN_REG, NULL, NULL);
+	m_btn_submit.SizeToContent();
 	/*CFont *currentFont = this->GetFont();
 	LOGFONT logFont;
 	currentFont->GetLogFont(&logFont);
@@ -72,7 +76,7 @@ void FormRegister::OnInitialUpdate()
 }
 BEGIN_MESSAGE_MAP(FormRegister, CFormView)
 	ON_WM_CTLCOLOR()
-	ON_BN_CLICKED(IDOK, &FormRegister::OnBnClickedOk)
+	ON_BN_CLICKED(ID_OK, &FormRegister::OnBnClickedOk)
 	ON_EN_CHANGE(IDC_EDIT7, &FormRegister::OnEnChangeEdit7)
 END_MESSAGE_MAP()
 
@@ -122,7 +126,7 @@ void FormRegister::OnBnClickedOk()
 	if (u_fname.IsEmpty() || u_email.IsEmpty() || u_gender.IsEmpty() || u_bday.IsEmpty()
 		|| u_address.IsEmpty() || u_uname.IsEmpty() || u_password.IsEmpty() || u_confirm.IsEmpty())
 	{
-		MessageBox(_T("The information is not filled in completely"), _T("Prompt"));
+		MessageBox(_T("모든 항목을 작성해주세요!"), _T("회원가입"));
 		return;
 	}
 	//Database Connectivity 
@@ -153,11 +157,12 @@ void FormRegister::OnBnClickedOk()
 		USES_CONVERSION;
 		if (mysql_query(&mysqlCon,W2A(str)) == 0)
 		{
-			MessageBox(_T("Insert successfully"));
+			MessageBox(_T("회원가입 완료!"), _T("회원가입"));
+			((CBUEDUDlg *)GetParent())->ShowForm(5);
 		}
 		else
 		{
-			MessageBox(_T("insert failure"));
+			MessageBox(_T("중복된 값이 있습니다"), _T("회원가입"));
 			return;
 		}
 

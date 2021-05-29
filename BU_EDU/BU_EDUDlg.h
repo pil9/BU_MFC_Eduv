@@ -14,6 +14,7 @@
 #include "FormLogin.h"
 #include "FormRegister.h"
 #include "Formmain.h"
+#include "FormMypage.h"
 
 #pragma once
 
@@ -49,6 +50,7 @@ public:
 	FormRegister* p_Register;
 	FormLogin* p_Login;
 	Formmain* p_Main;
+	FormMypage* p_Mypage;
 	
 	void AllocForms();
 	
@@ -88,4 +90,5 @@ public:
 	afx_msg void OnBnClickedButton6();
 	afx_msg void OnBnClickedButton8();
 	afx_msg void OnBnClickedButton10();
+	afx_msg void OnStnClickedStaticLogo();
 };

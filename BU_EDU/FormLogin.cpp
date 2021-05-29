@@ -10,7 +10,7 @@
 // FormLogin
 
 IMPLEMENT_DYNCREATE(FormLogin, CFormView)
-
+bool login_check = false;
 FormLogin::FormLogin()
 	: CFormView(IDD_FORM_LOGIN)
 	, m_Username(_T(""))
@@ -63,7 +63,7 @@ void FormLogin::Dump(CDumpContext& dc) const
 
 BOOL FormLogin::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT & rect, CWnd * pParentWnd, UINT nID, CCreateContext * pContext)
 {
-
+	
 
 	return CFormView::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, nID, pContext);
 }
@@ -101,10 +101,9 @@ HBRUSH FormLogin::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 void FormLogin::OnBnClickedBtnReg()
 {
 	((CBUEDUDlg *)GetParent())->ShowForm(6);
-	FormRegister *Test = new FormRegister;
+	//FormRegister *Test = new FormRegister;
 	//CString tname = Test->test_name;
 	CString tname = test_name;
-	MessageBox(tname);
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
 
@@ -116,7 +115,7 @@ void FormLogin::OnBnClickedBtnLogin()
 	MYSQL mysqlCon;
 	if (m_Username.IsEmpty() || m_Password.IsEmpty())
 	{
-		MessageBox(_T("Username and password cannot be empty!"));
+		MessageBox(_T("아이디와 패스워드를 입력해주세요!"), _T("로그인"));
 		return;
 	}
 	mysql_init(&mysqlCon);
@@ -146,11 +145,18 @@ void FormLogin::OnBnClickedBtnLogin()
 			char* Passwd = row[1];
 			if ((m_Username == Name) && (m_Password == Passwd))
 			{
-				MessageBox(_T("Test"));
+				((CBUEDUDlg *)GetParent())->ShowForm(6);
+				MessageBox(_T("마이페이지 연동해야함"));
+				login_check = true;
+				break;
 				//loginUserName = Name;
 				/*CWelcomeDlg goToMenu;
 				goToMenu.DoModal();*/
 			}
+			
+		}
+		if (login_check == false) {
+			MessageBox(_T("아이디 패스워드가 틀립니다!"), _T("로그인 실패"));
 		}
 	}
 	mysql_close(&mysqlCon);

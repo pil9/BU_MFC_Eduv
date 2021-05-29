@@ -43,6 +43,7 @@ public:
 	int mRadio;
 	
 	afx_msg void OnEnChangeEdit7();
+	CBitmapButton m_btn_submit;
 };
 extern CString test_name;
 

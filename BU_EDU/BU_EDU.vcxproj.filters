@@ -54,6 +54,12 @@
     <ClInclude Include="FormRegister.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Formmain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FormMypage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BU_EDU.cpp">
@@ -84,6 +90,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FormRegister.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Formmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormMypage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -222,6 +234,27 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\submit_btn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_list_music.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_text.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_text_logo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_play.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_record.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_stop.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main_btn_play_on.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

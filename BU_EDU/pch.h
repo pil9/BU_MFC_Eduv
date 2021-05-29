@@ -12,5 +12,6 @@
 #include <afxext.h>
 #include <winsock2.h>
 #include "mysql.h"
+#include <afxext.h>
 
 #endif //PCH_H

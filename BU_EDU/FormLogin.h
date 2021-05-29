@@ -49,5 +49,5 @@ public:
 	virtual void OnInitialUpdate();
 	CBitmapButton m_btn_reg;
 };
-
+extern bool login_check;
 
